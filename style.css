@@ -1,0 +1,244 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+:root {
+    --font-size-base: 10px;
+    font-size: 10px;
+    --p-light: #F5EFE6;
+    --p-soft: #E8DFD0;
+    --p-primary: #3B3B3B;
+    --p-accent: #A8754F;
+    --accent-contrast: #CC9E76;
+    --line-light: #D4C9BB;
+    --p-glow: rgba(200, 160, 120, 0.15);
+
+}
+body {
+    font-family: 'Crimson Text', serif;
+    background-color: var(--p-light);
+    margin: 0 clamp(2rem, 22vw, 40rem);
+}
+h1,
+h2,
+h3 {
+    color: #A8754F;
+}
+h3{
+    font-size: clamp(2rem, 2.2vw, 10rem);
+}
+p {
+    font-size: clamp(1rem, 1.5vw, 6rem);
+}
+/*################################## Header ##################################*/
+header {
+    height: clamp(35rem, 25vw, 100rem);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+.header--img {
+  background-image: url('img/main\ photo.png');
+  background-repeat: no-repeat;
+  background-position: top;
+  position: relative;
+  overflow: hidden;
+  margin-right: 2rem;
+  background-size: clamp(35rem, 25vw, 100rem);
+  width: clamp(35rem, 25vw, 100rem);
+  height: clamp(35rem, 25vw, 200rem);
+}
+.header--img::before{
+    content: "";
+    width: clamp(35rem, 28vw, 200rem);
+    height: clamp(35rem, 22vw, 200rem);
+    position: absolute;
+    bottom: 0;
+    background-color: var(--p-soft);
+
+    z-index: -1;
+}
+.header--title {
+    font-size: clamp(7rem, 6vw, 100rem);;
+    line-height: clamp(7rem, 6vw , 18rem);
+}
+.header--text {
+    display: flex;
+    flex-direction: column;
+    color: var(--p-accent);
+    justify-content: center;
+}
+.header--text__paragraph {
+    font-size: clamp(0.2rem, 1.5vw, 12rem);
+    margin-top: 1.5vw;
+}
+.line {
+    background-color: var(--p-soft);
+    height: 0.2rem;
+    width: auto;
+}
+/*################################## Main ##################################*/
+main {
+    margin-top: 2rem;
+    font-size: 2.5rem;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2.5rem;
+    justify-content: space-between;
+}
+main section:nth-child(n+3) {
+  grid-column: span 2;
+}
+/*################################## About Me ##################################*/
+.interests{
+    justify-self: center;
+    display: flex;
+    flex-direction: column;
+}
+/*################################## Skills ##################################*/
+.skills li {
+    list-style: none;
+    width: clamp(8rem, 16vw, 40rem);
+    height: clamp(4rem, 4.2vw, 17rem);
+    justify-self: center;
+}
+.bar {
+    width: 100%;
+    height: clamp(2rem, 1vw, 5rem);
+    background-color: var(--line-light);
+    border-radius: 2rem;
+}
+.bar--fill {
+    height: 100%;
+    background-color: var(--accent-contrast);
+    width: 0;
+    border-radius: 2rem;
+}
+.skills h3 {
+    justify-self: center;
+}
+.skills ul li span {
+    font-size: clamp(2rem, 1.8vw, 6rem);
+}
+.skills--smallerThen1260px {
+    display: none;
+}
+/*################################## My Work ##################################*/
+.my-work {
+    display: grid;
+    justify-items: center;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+.my-work--project {
+    height: clamp(5rem, 20vw, 50rem);
+    width: 100%;
+    background-color: var(--p-accent);
+    border-radius: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.my-work--project:hover {
+    background-color: var(--accent-contrast);
+}
+.my-work--project p {
+    font-size: clamp(2rem, 2vw, 10rem);
+    font-weight: bold;
+    color: var(--accent-contrast);
+}
+/*################################## Footery ##################################*/
+footer {
+    height: 20rem;
+    width: 100%;
+    margin-top: 5rem;
+}
+/*################################## Media Query ##################################*/
+@media (max-width: 1440px) {
+    .my-work {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 1260px) {
+    html {
+        --font-size-base: 8px;
+    }
+    header {
+        flex-direction: column;
+        height: auto;
+    }
+    .header--img {
+        order: 1;
+    }
+    .header--text {
+        order: 2;
+        margin-bottom: 1.5rem;
+    }
+    body > main {
+        display: flex;
+        align-items: normal;
+        justify-content: center;
+        flex-direction: column;
+        margin: 0 clamp(1rem, 6vw, 6rem);
+    }
+    main section {
+        grid-column: auto !important;
+    }
+    .header--text__paragraph {
+        font-size: clamp(0.2rem, 2vw, 12rem);
+        align-self: center;
+    }
+    h3 {
+        font-size: clamp(2.5rem, 4.5vw, 10rem);
+    }
+    p {
+        font-size: clamp(1.5rem, 2.2vw, 6rem);
+    }
+    .interests
+    .skills {
+        margin: 0 clamp(4rem, 2vw, 8rem);
+    }
+    .skills h3 {
+        justify-self: start;
+    }
+    .skills--smallerThen1260px {
+        display: flex;
+        flex-direction: row;
+    }
+    .skills--biggerThen1260px {
+        display: none;
+    }
+    .line {
+        width: clamp(2rem, 43vw, 70rem);
+        justify-self: center;
+
+    }
+}
+
+@media (max-width: 900px) {
+    .header--text__paragraph {
+        font-size: clamp(0.2rem, 2.5vw, 12rem);
+        align-self: center;
+    }
+    .my-work {
+        grid-template-columns: repeat(1, 1fr);
+    }
+    .my-work--project {
+        height: clamp(5rem, 60vw, 50rem);
+    }
+    .my-work--project p {
+        font-size: clamp(3rem, 8vw, 8rem);
+    }
+    body {
+        margin: 0 clamp(3rem, 6vw, 6rem);
+    }
+    h3 {
+        font-size: clamp(4rem, 5.5vw, 10rem);
+    }
+    p {
+        font-size: clamp(3rem, 3.2vw, 6rem);
+    }
+}
