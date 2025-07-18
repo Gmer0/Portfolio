@@ -103,6 +103,7 @@ main section:nth-child(n+3) {
     width: clamp(8rem, 16vw, 40rem);
     height: clamp(4rem, 4.2vw, 17rem);
     justify-self: center;
+    align-content: center;
 }
 .bar {
     width: 100%;
@@ -163,9 +164,6 @@ footer {
 }
 
 @media (max-width: 1260px) {
-    html {
-        --font-size-base: 8px;
-    }
     header {
         flex-direction: column;
         height: auto;
@@ -182,7 +180,6 @@ footer {
         align-items: normal;
         justify-content: center;
         flex-direction: column;
-        margin: 0 clamp(1rem, 6vw, 6rem);
     }
     main section {
         grid-column: auto !important;
@@ -207,6 +204,7 @@ footer {
     .skills--smallerThen1260px {
         display: flex;
         flex-direction: row;
+        gap: clamp(1rem, 10vw, 10rem);
     }
     .skills--biggerThen1260px {
         display: none;
@@ -233,7 +231,7 @@ footer {
         font-size: clamp(3rem, 8vw, 8rem);
     }
     body {
-        margin: 0 clamp(3rem, 6vw, 6rem);
+        margin: 0 clamp(10rem, 6vw, 18rem);
     }
     h3 {
         font-size: clamp(4rem, 5.5vw, 10rem);
